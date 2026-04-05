@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMPSBL® Refurbishment Report — CMPSBL-MNL4L8DE-RM6Z</title>
+  <style>
+    :root {
+      --primary: #8b5cf6;
+      --bg: #0a0a0b;
+      --surface: #141416;
+      --border: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --error: #ef4444;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .header {
+      text-align: center;
+      padding: 3rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      background: linear-gradient(135deg, var(--surface), var(--bg));
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+    .logo { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 1rem; }
+    .report-title { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .serial { font-family: monospace; font-size: 0.8rem; color: var(--primary); background: rgba(99,102,241,0.1); padding: 0.25rem 0.75rem; border-radius: 0.5rem; display: inline-block; }
+    .section { margin-bottom: 2rem; }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: var(--surface);
+      margin-bottom: 0.75rem;
+    }
+    .card-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-dim); margin-bottom: 0.25rem; }
+    .card-value { font-size: 1.5rem; font-weight: 800; }
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.375rem;
+    }
+    .badge-critical { background: rgba(239,68,68,0.15); color: var(--error); }
+    .badge-warning { background: rgba(245,158,11,0.15); color: var(--warning); }
+    .badge-info { background: rgba(99,102,241,0.15); color: var(--primary); }
+    .badge-hardened { background: rgba(34,197,94,0.15); color: var(--success); }
+    .badge-mitigated { background: rgba(245,158,11,0.15); color: var(--warning); }
+    .badge-monitor { background: rgba(99,102,241,0.1); color: var(--text-dim); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); color: var(--text-dim); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+    td { padding: 0.5rem 0.75rem; border-bottom: 1px solid rgba(39,39,42,0.5); }
+    code { font-family: 'SF Mono', 'Fira Code', monospace; font-size: 0.8rem; background: rgba(39,39,42,0.5); padding: 0.15rem 0.4rem; border-radius: 0.25rem; }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1rem; font-size: 0.8rem; overflow-x: auto; font-family: 'SF Mono', 'Fira Code', monospace; line-height: 1.5; }
+    .step-row { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: rgba(99,102,241,0.15); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; flex-shrink: 0; }
+    .footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: 0.75rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+    @media (max-width: 640px) {
+      body { padding: 1rem; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">CMPSBL® Software Refurbishment Center</div>
+    <h1 class="report-title">Refurbishment Report</h1>
+    <div class="serial">CMPSBL-MNL4L8DE-RM6Z</div>
+    <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.85rem;">
+      Generated April 4, 2026
+    </p>
+  </div>
+
+  <!-- CJPI Certificate -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> CJPI Certificate</div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-label">Score</div>
+        <div class="card-value" style="color: var(--primary)">100</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Tier</div>
+        <div class="card-value">Apex</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Primitives Applied</div>
+        <div class="card-value">40</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top: 0.5rem;">
+      <div class="card-label">Fingerprint</div>
+      <code>b1453c3f64c62891</code>
+    </div>
+  </div>
+
+  <!-- Pipeline -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> Refurbishment Pipeline</div>
+    
+    <div class="step-row">
+      <div class="step-num">1</div>
+      <div>
+        <strong>TOOLKIT</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">3611ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">TOOLKIT applied engine-level hardening: Agency source · 9/23 signal hits · collision 94</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">2</div>
+      <div>
+        <strong>ORACLE</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6945ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">ORACLE applied agent-level hardening: Ultimate source · 6/10 signal hits · collision 94</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">3</div>
+      <div>
+        <strong>SENTINEL</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">3607ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">SENTINEL applied agent-level hardening: Ultimate source · 3/10 signal hits · collision 90</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">4</div>
+      <div>
+        <strong>NOMAD</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6163ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">NOMAD applied agent-level hardening: Ultimate source · 8/10 signal hits · collision 90</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">5</div>
+      <div>
+        <strong>MEMORY</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">8354ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">MEMORY applied organ-level hardening: Shared substrate · 7/10 signal hits · collision 88</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">6</div>
+      <div>
+        <strong>LEXICON</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">8366ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">LEXICON applied engine-level hardening: Llm source · 5/26 signal hits · collision 88</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">7</div>
+      <div>
+        <strong>CUSTODIAN</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">5056ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">CUSTODIAN applied agent-level hardening: Llm source · 5/26 signal hits · collision 87</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">8</div>
+      <div>
+        <strong>FLUX</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">5723ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">FLUX applied engine-level hardening: Ultimate source · 3/12 signal hits · collision 87</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">9</div>
+      <div>
+        <strong>CATALYST</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">2275ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">CATALYST applied agent-level hardening: Ultimate source · 2/10 signal hits · collision 87</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">10</div>
+      <div>
+        <strong>ARBITER</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">2917ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">ARBITER applied agent-level hardening: Ultimate source · 4/11 signal hits · collision 87</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">11</div>
+      <div>
+        <strong>OPERATOR</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">4206ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">OPERATOR applied agent-level hardening: Agency source · 6/25 signal hits · collision 87</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">12</div>
+      <div>
+        <strong>APEX</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">5459ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">APEX applied engine-level hardening: Ultimate source · 2/11 signal hits · collision 86</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">13</div>
+      <div>
+        <strong>RAMPART</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">3704ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">RAMPART applied engine-level hardening: Llm source · 7/28 signal hits · collision 86</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">14</div>
+      <div>
+        <strong>TETHER</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">9771ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">TETHER applied engine-level hardening: Llm source · 5/26 signal hits · collision 84</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">15</div>
+      <div>
+        <strong>LIDAR</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">4683ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">LIDAR applied engine-level hardening: Robotics source · 7/29 signal hits · collision 83</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">16</div>
+      <div>
+        <strong>DELEGATE</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">9172ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">DELEGATE applied engine-level hardening: Agency source · 6/26 signal hits · collision 83</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">17</div>
+      <div>
+        <strong>CONDUIT</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">2714ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">CONDUIT applied engine-level hardening: Ultimate source · 2/10 signal hits · collision 83</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">18</div>
+      <div>
+        <strong>GENESIS</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">7408ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">GENESIS applied engine-level hardening: Ultimate source · 4/10 signal hits · collision 83</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">19</div>
+      <div>
+        <strong>CRUCIBLE</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">4922ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">CRUCIBLE applied engine-level hardening: Ultimate source · 4/11 signal hits · collision 83</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">20</div>
+      <div>
+        <strong>PHOENIX</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6114ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">PHOENIX applied agent-level hardening: Ultimate source · 5/10 signal hits · collision 83</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">21</div>
+      <div>
+        <strong>SERVO</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">7790ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">SERVO applied engine-level hardening: Robotics source · 7/28 signal hits · collision 82</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">22</div>
+      <div>
+        <strong>VERITAS</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">2422ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">VERITAS applied engine-level hardening: Llm source · 10/34 signal hits · collision 82</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">23</div>
+      <div>
+        <strong>UPLINK</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">7018ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">UPLINK applied engine-level hardening: Agency source · 7/21 signal hits · collision 81</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">24</div>
+      <div>
+        <strong>SYLLOGISM</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6660ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">SYLLOGISM applied engine-level hardening: Llm source · 5/27 signal hits · collision 81</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">25</div>
+      <div>
+        <strong>MANDATE</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">5435ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">MANDATE applied engine-level hardening: Agency source · 5/27 signal hits · collision 80</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">26</div>
+      <div>
+        <strong>PRISM</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6600ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">PRISM applied engine-level hardening: Ultimate source · 3/12 signal hits · collision 80</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">27</div>
+      <div>
+        <strong>BASTION</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">7281ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">BASTION applied engine-level hardening: Cyber source · 3/17 signal hits · collision 79</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">28</div>
+      <div>
+        <strong>HADRON</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">7346ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">HADRON applied engine-level hardening: Quantum source · 9/32 signal hits · collision 79</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">29</div>
+      <div>
+        <strong>ENCODE</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">9749ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">ENCODE applied layer-level hardening: Shared substrate · 4/7 signal hits · collision 78</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">30</div>
+      <div>
+        <strong>VANGUARD</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6093ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">VANGUARD applied engine-level hardening: Cyber source · 3/18 signal hits · collision 78</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">31</div>
+      <div>
+        <strong>MESON</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">6862ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">MESON applied agent-level hardening: Quantum source · 3/16 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">32</div>
+      <div>
+        <strong>BRAIN</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">8768ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">BRAIN applied organ-level hardening: Shared substrate · 3/9 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">33</div>
+      <div>
+        <strong>KINETIC</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">3584ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">KINETIC applied engine-level hardening: Robotics source · 10/22 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">34</div>
+      <div>
+        <strong>TENSOR</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">5407ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">TENSOR applied engine-level hardening: Robotics source · 8/26 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">35</div>
+      <div>
+        <strong>SWARM</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">3562ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">SWARM applied agent-level hardening: Robotics source · 7/20 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">36</div>
+      <div>
+        <strong>CLARITY</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">3380ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">CLARITY applied engine-level hardening: Llm source · 6/28 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">37</div>
+      <div>
+        <strong>HERALD</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">8462ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">HERALD applied agent-level hardening: Llm source · 8/28 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">38</div>
+      <div>
+        <strong>ANCHOR</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">8176ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">ANCHOR applied agent-level hardening: Agency source · 7/21 signal hits · collision 77</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">39</div>
+      <div>
+        <strong>SCRIBE</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">2643ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">SCRIBE applied engine-level hardening: Agency source · 4/21 signal hits · collision 74</div>
+      </div>
+    </div>
+    <div class="step-row">
+      <div class="step-num">40</div>
+      <div>
+        <strong>PRISM</strong>
+        <span style="color: var(--text-dim); font-size: 0.8rem; margin-left: 0.5rem;">2453ms</span>
+        <div style="color: var(--text-muted); font-size: 0.8rem;">PRISM applied agent-level hardening: Quantum source · 5/21 signal hits · collision 74</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vulnerability Assessment -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> Vulnerability Assessment</div>
+    <table>
+      <thead><tr><th>Severity</th><th>Finding</th><th>Status</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td><span class="badge badge-warning">warning</span></td>
+          <td><strong>Synchronous-only architecture</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">No async patterns found in substantial codebase. May block the event loop under load.</span></td>
+          <td><span class="badge badge-mitigated">mitigated</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warning">warning</span></td>
+          <td><strong>High cyclomatic complexity (335)</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">Complexity score of 335 indicates too many branching paths. Hard to test and maintain.</span></td>
+          <td><span class="badge badge-mitigated">mitigated</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warning">warning</span></td>
+          <td><strong>12 technical debt markers found</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">12 TODO/FIXME/HACK/XXX markers indicate deferred work. ORACLE estimates this compounds into architectural risk within 12 months.</span></td>
+          <td><span class="badge badge-mitigated">mitigated</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warning">warning</span></td>
+          <td><strong>High dependency coupling (107 imports)</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">107 imports detected — high coupling increases blast radius of dependency failures.</span></td>
+          <td><span class="badge badge-mitigated">mitigated</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-warning">warning</span></td>
+          <td><strong>Monolithic file (2202 lines)</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">2202 lines in a single file. ENGINEER recommends decomposition to reduce cognitive load.</span></td>
+          <td><span class="badge badge-mitigated">mitigated</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-info">info</span></td>
+          <td><strong>No module exports detected</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">Code appears self-contained with no exports. Limits reusability and testability.</span></td>
+          <td><span class="badge badge-monitor">monitor</span></td>
+        </tr>
+        <tr>
+          <td><span class="badge badge-info">info</span></td>
+          <td><strong>26 classes in single file</strong><br><span style="color: var(--text-dim); font-size: 0.8rem;">Multiple classes in one file suggest God Object patterns. ENGINEER recommends single-class files.</span></td>
+          <td><span class="badge badge-monitor">monitor</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- New Capabilities -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> New Capabilities</div>
+    
+    <div class="card">
+      <strong>Skill-Based Task Router [Active]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Matches tasks to agents based on competency matrices, current workload, and historical success rates. Detects bottlenecks and re-routes in real-time.</p>
+      <pre style="margin-top: 0.5rem;">import { SkillRouter } from '@cmpsbl/agency';
+SkillRouter.assign(task, { strategy: 'competency' });</pre>
+    </div>
+    <div class="card">
+      <strong>QCD Color Charge Simulator [Active]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Lattice QCD Monte Carlo simulation for gluon exchange, asymptotic freedom verification, and hadron mass computation from first principles.</p>
+      <pre style="margin-top: 0.5rem;">import { QCDSim } from '@cmpsbl/quantum';
+const mass = QCDSim.lattice({ quarks: ['u', 'd'], beta: 6.0 });</pre>
+    </div>
+    <div class="card">
+      <strong>Context Persistence Layer [Passive]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Maintains agent context across sessions with long-term memory, conversation threading, and knowledge graph integration for continuity.</p>
+      <pre style="margin-top: 0.5rem;">import { ContextLayer } from '@cmpsbl/agency';
+ContextLayer.persist({ sessionId, context, ttl: '30d' });</pre>
+    </div>
+    <div class="card">
+      <strong>Attack Chain Reconstructor [Passive]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Traces lateral movement paths, reconstructs full attack timelines, detects privilege escalation, and identifies credential abuse chains.</p>
+      <pre style="margin-top: 0.5rem;">import { AttackChain } from '@cmpsbl/cyber';
+const timeline = AttackChain.reconstruct({ incidentId });</pre>
+    </div>
+    <div class="card">
+      <strong>Zero-Downtime Migrator [Hybrid]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Observes data access patterns during migration, dual-writes to old and new schemas, and seamlessly cuts over when parity is confirmed.</p>
+      <pre style="margin-top: 0.5rem;">import { Migrator } from '@cmpsbl/runtime';
+Migrator.dualWrite({ source: oldDb, target: newDb });</pre>
+    </div>
+    <div class="card">
+      <strong>Rate Limit Intelligence [Hybrid]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Learns normal traffic patterns (passive) and dynamically adjusts rate limits per client/endpoint (active). Prevents abuse while preserving legitimate spikes.</p>
+      <pre style="margin-top: 0.5rem;">import { RateLimiter } from '@cmpsbl/runtime';
+RateLimiter.adaptive({ learning: true });</pre>
+    </div>
+    <div class="card">
+      <strong>Particle Collision Analyzer [Active]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Reconstructs collision events from detector data, clusters jets, identifies decay products, and computes invariant mass distributions.</p>
+      <pre style="margin-top: 0.5rem;">import { CollisionAnalyzer } from '@cmpsbl/quantum';
+const events = CollisionAnalyzer.reconstruct({ cms_energy: 13000 });</pre>
+    </div>
+    <div class="card">
+      <strong>Forensic Incident Response [Active]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Automates incident containment, evidence preservation, forensic timeline reconstruction, and root cause analysis. Executes playbooks autonomously.</p>
+      <pre style="margin-top: 0.5rem;">import { ForensicIR } from '@cmpsbl/cyber';
+ForensicIR.contain({ incidentId, preserveEvidence: true });</pre>
+    </div>
+    <div class="card">
+      <strong>Mission Decomposer [Active]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Breaks complex user objectives into executable sub-tasks with dependency graphs, priority scoring, and deadline-aware scheduling. Handles re-planning on failure.</p>
+      <pre style="margin-top: 0.5rem;">import { MissionDecomposer } from '@cmpsbl/agency';
+const plan = MissionDecomposer.plan({ objective, deadline });</pre>
+    </div>
+    <div class="card">
+      <strong>Content Generation Engine [Active]</strong>
+      <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.25rem;">Structured content drafting with style adherence, audience targeting, format templating, and iterative revision loops.</p>
+      <pre style="margin-top: 0.5rem;">import { ContentGen } from '@cmpsbl/agency';
+const draft = ContentGen.write({ brief, style: 'technical' });</pre>
+    </div>
+  </div>
+
+  <!-- Error Codes -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> Error Codes</div>
+    <table>
+      <thead><tr><th>Code</th><th>Trigger</th><th>Resolution</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td><code>CMPSBL-E001</code></td>
+          <td>Circuit breaker tripped</td>
+          <td style="color: var(--text-muted);">Automatic recovery via FAILSAFE. No action needed.</td>
+        </tr>
+        <tr>
+          <td><code>CMPSBL-E002</code></td>
+          <td>Defense layer blocked request</td>
+          <td style="color: var(--text-muted);">Check request origin against allowlist.</td>
+        </tr>
+        <tr>
+          <td><code>CMPSBL-E003</code></td>
+          <td>Governance check failed</td>
+          <td style="color: var(--text-muted);">Verify operation is within policy bounds.</td>
+        </tr>
+        <tr>
+          <td><code>CMPSBL-E004</code></td>
+          <td>BEACON health check timeout</td>
+          <td style="color: var(--text-muted);">Check system resource availability.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Testing Guide -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> Testing Guide</div>
+    <div class="card">
+      <div style="margin-bottom: 0.75rem;">
+        <span class="card-label">Install</span>
+        <pre>npm install @cmpsbl/test-harness</pre>
+      </div>
+      <div style="margin-bottom: 0.75rem;">
+        <span class="card-label">Run Tests</span>
+        <pre>npx cmpsbl-test --config ./restoration-report.json</pre>
+      </div>
+      <ol style="padding-left: 1.25rem; font-size: 0.85rem; color: var(--text-muted);">
+        <li style="margin-bottom: 0.5rem;">Install the test harness: npm install @cmpsbl/test-harness</li><li style="margin-bottom: 0.5rem;">Place the restoration-report.json in your project root</li><li style="margin-bottom: 0.5rem;">Run: npx cmpsbl-test --config ./restoration-report.json</li><li style="margin-bottom: 0.5rem;">Review output — each primitive's hardening is verified independently</li><li style="margin-bottom: 0.5rem;">Green = hardening active. Red = review the specific primitive section.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Primitive Manifest -->
+  <div class="section">
+    <div class="section-title"><span class="dot"></span> Primitive Manifest</div>
+    <table>
+      <thead><tr><th>Primitive</th><th>Category</th><th>Contribution</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td><strong>TOOLKIT</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 9/23 signal hits · collision 94</td>
+        </tr>
+        <tr>
+          <td><strong>ORACLE</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 6/10 signal hits · collision 94</td>
+        </tr>
+        <tr>
+          <td><strong>SENTINEL</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 3/10 signal hits · collision 90</td>
+        </tr>
+        <tr>
+          <td><strong>NOMAD</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 8/10 signal hits · collision 90</td>
+        </tr>
+        <tr>
+          <td><strong>MEMORY</strong></td>
+          <td><span class="badge badge-info">Organ</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Shared substrate · 7/10 signal hits · collision 88</td>
+        </tr>
+        <tr>
+          <td><strong>LEXICON</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 5/26 signal hits · collision 88</td>
+        </tr>
+        <tr>
+          <td><strong>CUSTODIAN</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 5/26 signal hits · collision 87</td>
+        </tr>
+        <tr>
+          <td><strong>FLUX</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 3/12 signal hits · collision 87</td>
+        </tr>
+        <tr>
+          <td><strong>CATALYST</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 2/10 signal hits · collision 87</td>
+        </tr>
+        <tr>
+          <td><strong>ARBITER</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 4/11 signal hits · collision 87</td>
+        </tr>
+        <tr>
+          <td><strong>OPERATOR</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 6/25 signal hits · collision 87</td>
+        </tr>
+        <tr>
+          <td><strong>APEX</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 2/11 signal hits · collision 86</td>
+        </tr>
+        <tr>
+          <td><strong>RAMPART</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 7/28 signal hits · collision 86</td>
+        </tr>
+        <tr>
+          <td><strong>TETHER</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 5/26 signal hits · collision 84</td>
+        </tr>
+        <tr>
+          <td><strong>LIDAR</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Robotics source · 7/29 signal hits · collision 83</td>
+        </tr>
+        <tr>
+          <td><strong>DELEGATE</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 6/26 signal hits · collision 83</td>
+        </tr>
+        <tr>
+          <td><strong>CONDUIT</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 2/10 signal hits · collision 83</td>
+        </tr>
+        <tr>
+          <td><strong>GENESIS</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 4/10 signal hits · collision 83</td>
+        </tr>
+        <tr>
+          <td><strong>CRUCIBLE</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 4/11 signal hits · collision 83</td>
+        </tr>
+        <tr>
+          <td><strong>PHOENIX</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 5/10 signal hits · collision 83</td>
+        </tr>
+        <tr>
+          <td><strong>SERVO</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Robotics source · 7/28 signal hits · collision 82</td>
+        </tr>
+        <tr>
+          <td><strong>VERITAS</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 10/34 signal hits · collision 82</td>
+        </tr>
+        <tr>
+          <td><strong>UPLINK</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 7/21 signal hits · collision 81</td>
+        </tr>
+        <tr>
+          <td><strong>SYLLOGISM</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 5/27 signal hits · collision 81</td>
+        </tr>
+        <tr>
+          <td><strong>MANDATE</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 5/27 signal hits · collision 80</td>
+        </tr>
+        <tr>
+          <td><strong>PRISM</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Ultimate source · 3/12 signal hits · collision 80</td>
+        </tr>
+        <tr>
+          <td><strong>BASTION</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Cyber source · 3/17 signal hits · collision 79</td>
+        </tr>
+        <tr>
+          <td><strong>HADRON</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Quantum source · 9/32 signal hits · collision 79</td>
+        </tr>
+        <tr>
+          <td><strong>ENCODE</strong></td>
+          <td><span class="badge badge-info">Layer</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Shared substrate · 4/7 signal hits · collision 78</td>
+        </tr>
+        <tr>
+          <td><strong>VANGUARD</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Cyber source · 3/18 signal hits · collision 78</td>
+        </tr>
+        <tr>
+          <td><strong>MESON</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Quantum source · 3/16 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>BRAIN</strong></td>
+          <td><span class="badge badge-info">Organ</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Shared substrate · 3/9 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>KINETIC</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Robotics source · 10/22 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>TENSOR</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Robotics source · 8/26 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>SWARM</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Robotics source · 7/20 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>CLARITY</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 6/28 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>HERALD</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Llm source · 8/28 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>ANCHOR</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 7/21 signal hits · collision 77</td>
+        </tr>
+        <tr>
+          <td><strong>SCRIBE</strong></td>
+          <td><span class="badge badge-info">Engine</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Agency source · 4/21 signal hits · collision 74</td>
+        </tr>
+        <tr>
+          <td><strong>PRISM</strong></td>
+          <td><span class="badge badge-info">Agent</span></td>
+          <td style="color: var(--text-muted); font-size: 0.85rem;">Quantum source · 5/21 signal hits · collision 74</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer">
+    <p><strong>CMPSBL®</strong> — Software Refurbishment Center</p>
+    <p style="margin-top: 0.25rem;">Primitive chain: TOOLKIT → ORACLE → SENTINEL → NOMAD → MEMORY → LEXICON → CUSTODIAN → FLUX → CATALYST → ARBITER → OPERATOR → APEX → RAMPART → TETHER → LIDAR → DELEGATE → CONDUIT → GENESIS → CRUCIBLE → PHOENIX → SERVO → VERITAS → UPLINK → SYLLOGISM → MANDATE → PRISM → BASTION → HADRON → ENCODE → VANGUARD → MESON → BRAIN → KINETIC → TENSOR → SWARM → CLARITY → HERALD → ANCHOR → SCRIBE → PRISM</p>
+    <p style="margin-top: 0.5rem; font-size: 0.7rem;">This document is a sealed artifact. Fingerprint-validated against the CMPSBL Merkle chain.</p>
+  </div>
+</body>
+</html>

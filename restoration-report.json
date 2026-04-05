@@ -1,258 +1,258 @@
 {
-  "id": "CMPSBL-MNKQ1LXE-X0ZD",
-  "generatedAt": "2026-04-04T19:24:32.453Z",
+  "id": "CMPSBL-MNL4L8DE-RM6Z",
+  "generatedAt": "2026-04-05T02:11:42.630Z",
   "pipelineDetails": [
     {
       "order": 1,
-      "primitiveName": "CONDUIT",
-      "action": "CONDUIT applied engine-level hardening: Ultimate source · 4/10 signal hits · collision 98",
-      "durationMs": 3637
+      "primitiveName": "TOOLKIT",
+      "action": "TOOLKIT applied engine-level hardening: Agency source · 9/23 signal hits · collision 94",
+      "durationMs": 3611
     },
     {
       "order": 2,
       "primitiveName": "ORACLE",
-      "action": "ORACLE applied agent-level hardening: Ultimate source · 7/10 signal hits · collision 98",
-      "durationMs": 7155
+      "action": "ORACLE applied agent-level hardening: Ultimate source · 6/10 signal hits · collision 94",
+      "durationMs": 6945
     },
     {
       "order": 3,
-      "primitiveName": "APEX",
-      "action": "APEX applied engine-level hardening: Ultimate source · 8/11 signal hits · collision 96",
-      "durationMs": 2759
+      "primitiveName": "SENTINEL",
+      "action": "SENTINEL applied agent-level hardening: Ultimate source · 3/10 signal hits · collision 90",
+      "durationMs": 3607
     },
     {
       "order": 4,
-      "primitiveName": "GENESIS",
-      "action": "GENESIS applied engine-level hardening: Ultimate source · 6/10 signal hits · collision 94",
-      "durationMs": 7354
+      "primitiveName": "NOMAD",
+      "action": "NOMAD applied agent-level hardening: Ultimate source · 8/10 signal hits · collision 90",
+      "durationMs": 6163
     },
     {
       "order": 5,
-      "primitiveName": "CRUCIBLE",
-      "action": "CRUCIBLE applied engine-level hardening: Ultimate source · 7/11 signal hits · collision 94",
-      "durationMs": 4267
+      "primitiveName": "MEMORY",
+      "action": "MEMORY applied organ-level hardening: Shared substrate · 7/10 signal hits · collision 88",
+      "durationMs": 8354
     },
     {
       "order": 6,
       "primitiveName": "LEXICON",
-      "action": "LEXICON applied engine-level hardening: Llm source · 12/26 signal hits · collision 93",
-      "durationMs": 2900
+      "action": "LEXICON applied engine-level hardening: Llm source · 5/26 signal hits · collision 88",
+      "durationMs": 8366
     },
     {
       "order": 7,
-      "primitiveName": "LIDAR",
-      "action": "LIDAR applied engine-level hardening: Robotics source · 14/29 signal hits · collision 92",
-      "durationMs": 4463
+      "primitiveName": "CUSTODIAN",
+      "action": "CUSTODIAN applied agent-level hardening: Llm source · 5/26 signal hits · collision 87",
+      "durationMs": 5056
     },
     {
       "order": 8,
-      "primitiveName": "DELEGATE",
-      "action": "DELEGATE applied engine-level hardening: Agency source · 14/26 signal hits · collision 92",
-      "durationMs": 4838
+      "primitiveName": "FLUX",
+      "action": "FLUX applied engine-level hardening: Ultimate source · 3/12 signal hits · collision 87",
+      "durationMs": 5723
     },
     {
       "order": 9,
-      "primitiveName": "TOOLKIT",
-      "action": "TOOLKIT applied engine-level hardening: Agency source · 10/23 signal hits · collision 90",
-      "durationMs": 3288
+      "primitiveName": "CATALYST",
+      "action": "CATALYST applied agent-level hardening: Ultimate source · 2/10 signal hits · collision 87",
+      "durationMs": 2275
     },
     {
       "order": 10,
-      "primitiveName": "PRISM",
-      "action": "PRISM applied engine-level hardening: Ultimate source · 8/12 signal hits · collision 90",
-      "durationMs": 8052
+      "primitiveName": "ARBITER",
+      "action": "ARBITER applied agent-level hardening: Ultimate source · 4/11 signal hits · collision 87",
+      "durationMs": 2917
     },
     {
       "order": 11,
-      "primitiveName": "FLUX",
-      "action": "FLUX applied engine-level hardening: Ultimate source · 6/12 signal hits · collision 90",
-      "durationMs": 7678
+      "primitiveName": "OPERATOR",
+      "action": "OPERATOR applied agent-level hardening: Agency source · 6/25 signal hits · collision 87",
+      "durationMs": 4206
     },
     {
       "order": 12,
-      "primitiveName": "DYNAMO",
-      "action": "DYNAMO applied engine-level hardening: Ultimate source · 5/12 signal hits · collision 90",
-      "durationMs": 4570
+      "primitiveName": "APEX",
+      "action": "APEX applied engine-level hardening: Ultimate source · 2/11 signal hits · collision 86",
+      "durationMs": 5459
     },
     {
       "order": 13,
-      "primitiveName": "SENTINEL",
-      "action": "SENTINEL applied agent-level hardening: Ultimate source · 5/10 signal hits · collision 90",
-      "durationMs": 5898
+      "primitiveName": "RAMPART",
+      "action": "RAMPART applied engine-level hardening: Llm source · 7/28 signal hits · collision 86",
+      "durationMs": 3704
     },
     {
       "order": 14,
-      "primitiveName": "CATALYST",
-      "action": "CATALYST applied agent-level hardening: Ultimate source · 4/10 signal hits · collision 90",
-      "durationMs": 2449
+      "primitiveName": "TETHER",
+      "action": "TETHER applied engine-level hardening: Llm source · 5/26 signal hits · collision 84",
+      "durationMs": 9771
     },
     {
       "order": 15,
-      "primitiveName": "HERALD",
-      "action": "HERALD applied agent-level hardening: Ultimate source · 3/10 signal hits · collision 90",
-      "durationMs": 2803
+      "primitiveName": "LIDAR",
+      "action": "LIDAR applied engine-level hardening: Robotics source · 7/29 signal hits · collision 83",
+      "durationMs": 4683
     },
     {
       "order": 16,
-      "primitiveName": "PHOENIX",
-      "action": "PHOENIX applied agent-level hardening: Ultimate source · 5/10 signal hits · collision 90",
-      "durationMs": 5067
+      "primitiveName": "DELEGATE",
+      "action": "DELEGATE applied engine-level hardening: Agency source · 6/26 signal hits · collision 83",
+      "durationMs": 9172
     },
     {
       "order": 17,
-      "primitiveName": "SIEVE",
-      "action": "SIEVE applied engine-level hardening: Llm source · 8/26 signal hits · collision 89",
-      "durationMs": 3865
+      "primitiveName": "CONDUIT",
+      "action": "CONDUIT applied engine-level hardening: Ultimate source · 2/10 signal hits · collision 83",
+      "durationMs": 2714
     },
     {
       "order": 18,
-      "primitiveName": "TENSOR",
-      "action": "TENSOR applied engine-level hardening: Robotics source · 11/26 signal hits · collision 89",
-      "durationMs": 9889
+      "primitiveName": "GENESIS",
+      "action": "GENESIS applied engine-level hardening: Ultimate source · 4/10 signal hits · collision 83",
+      "durationMs": 7408
     },
     {
       "order": 19,
-      "primitiveName": "NEUTRINO",
-      "action": "NEUTRINO applied agent-level hardening: Quantum source · 8/23 signal hits · collision 89",
-      "durationMs": 6475
+      "primitiveName": "CRUCIBLE",
+      "action": "CRUCIBLE applied engine-level hardening: Ultimate source · 4/11 signal hits · collision 83",
+      "durationMs": 4922
     },
     {
       "order": 20,
-      "primitiveName": "TETHER",
-      "action": "TETHER applied engine-level hardening: Llm source · 7/26 signal hits · collision 89",
-      "durationMs": 3409
+      "primitiveName": "PHOENIX",
+      "action": "PHOENIX applied agent-level hardening: Ultimate source · 5/10 signal hits · collision 83",
+      "durationMs": 6114
     },
     {
       "order": 21,
-      "primitiveName": "MEMORY",
-      "action": "MEMORY applied organ-level hardening: Shared substrate · 7/10 signal hits · collision 88",
-      "durationMs": 2353
+      "primitiveName": "SERVO",
+      "action": "SERVO applied engine-level hardening: Robotics source · 7/28 signal hits · collision 82",
+      "durationMs": 7790
     },
     {
       "order": 22,
-      "primitiveName": "CUSTODIAN",
-      "action": "CUSTODIAN applied agent-level hardening: Llm source · 12/26 signal hits · collision 88",
-      "durationMs": 8802
+      "primitiveName": "VERITAS",
+      "action": "VERITAS applied engine-level hardening: Llm source · 10/34 signal hits · collision 82",
+      "durationMs": 2422
     },
     {
       "order": 23,
-      "primitiveName": "GRIPPER",
-      "action": "GRIPPER applied agent-level hardening: Robotics source · 8/17 signal hits · collision 87",
-      "durationMs": 2161
+      "primitiveName": "UPLINK",
+      "action": "UPLINK applied engine-level hardening: Agency source · 7/21 signal hits · collision 81",
+      "durationMs": 7018
     },
     {
       "order": 24,
-      "primitiveName": "QUBIT",
-      "action": "QUBIT applied engine-level hardening: Quantum source · 10/24 signal hits · collision 87",
-      "durationMs": 7731
+      "primitiveName": "SYLLOGISM",
+      "action": "SYLLOGISM applied engine-level hardening: Llm source · 5/27 signal hits · collision 81",
+      "durationMs": 6660
     },
     {
       "order": 25,
-      "primitiveName": "OPERATOR",
-      "action": "OPERATOR applied agent-level hardening: Agency source · 10/25 signal hits · collision 87",
-      "durationMs": 4644
+      "primitiveName": "MANDATE",
+      "action": "MANDATE applied engine-level hardening: Agency source · 5/27 signal hits · collision 80",
+      "durationMs": 5435
     },
     {
       "order": 26,
-      "primitiveName": "SERVO",
-      "action": "SERVO applied engine-level hardening: Robotics source · 9/28 signal hits · collision 86",
-      "durationMs": 5569
+      "primitiveName": "PRISM",
+      "action": "PRISM applied engine-level hardening: Ultimate source · 3/12 signal hits · collision 80",
+      "durationMs": 6600
     },
     {
       "order": 27,
-      "primitiveName": "HADRON",
-      "action": "HADRON applied engine-level hardening: Quantum source · 11/32 signal hits · collision 86",
-      "durationMs": 3697
+      "primitiveName": "BASTION",
+      "action": "BASTION applied engine-level hardening: Cyber source · 3/17 signal hits · collision 79",
+      "durationMs": 7281
     },
     {
       "order": 28,
-      "primitiveName": "RAMPART",
-      "action": "RAMPART applied engine-level hardening: Llm source · 11/28 signal hits · collision 86",
-      "durationMs": 5596
+      "primitiveName": "HADRON",
+      "action": "HADRON applied engine-level hardening: Quantum source · 9/32 signal hits · collision 79",
+      "durationMs": 7346
     },
     {
       "order": 29,
-      "primitiveName": "RECONN",
-      "action": "RECONN applied engine-level hardening: Agency source · 7/20 signal hits · collision 86",
-      "durationMs": 2574
+      "primitiveName": "ENCODE",
+      "action": "ENCODE applied layer-level hardening: Shared substrate · 4/7 signal hits · collision 78",
+      "durationMs": 9749
     },
     {
       "order": 30,
-      "primitiveName": "CLARITY",
-      "action": "CLARITY applied engine-level hardening: Llm source · 9/28 signal hits · collision 85",
-      "durationMs": 9071
+      "primitiveName": "VANGUARD",
+      "action": "VANGUARD applied engine-level hardening: Cyber source · 3/18 signal hits · collision 78",
+      "durationMs": 6093
     },
     {
       "order": 31,
-      "primitiveName": "FULCRUM",
-      "action": "FULCRUM applied engine-level hardening: Llm source · 7/26 signal hits · collision 85",
-      "durationMs": 8763
+      "primitiveName": "MESON",
+      "action": "MESON applied agent-level hardening: Quantum source · 3/16 signal hits · collision 77",
+      "durationMs": 6862
     },
     {
       "order": 32,
-      "primitiveName": "MARSHAL",
-      "action": "MARSHAL applied agent-level hardening: Robotics source · 5/22 signal hits · collision 84",
-      "durationMs": 2914
+      "primitiveName": "BRAIN",
+      "action": "BRAIN applied organ-level hardening: Shared substrate · 3/9 signal hits · collision 77",
+      "durationMs": 8768
     },
     {
       "order": 33,
-      "primitiveName": "TACHYON",
-      "action": "TACHYON applied agent-level hardening: Quantum source · 10/25 signal hits · collision 84",
-      "durationMs": 4921
+      "primitiveName": "KINETIC",
+      "action": "KINETIC applied engine-level hardening: Robotics source · 10/22 signal hits · collision 77",
+      "durationMs": 3584
     },
     {
       "order": 34,
-      "primitiveName": "MESON",
-      "action": "MESON applied agent-level hardening: Quantum source · 11/16 signal hits · collision 84",
-      "durationMs": 6798
+      "primitiveName": "TENSOR",
+      "action": "TENSOR applied engine-level hardening: Robotics source · 8/26 signal hits · collision 77",
+      "durationMs": 5407
     },
     {
       "order": 35,
-      "primitiveName": "PRISM",
-      "action": "PRISM applied agent-level hardening: Quantum source · 7/21 signal hits · collision 84",
-      "durationMs": 8430
+      "primitiveName": "SWARM",
+      "action": "SWARM applied agent-level hardening: Robotics source · 7/20 signal hits · collision 77",
+      "durationMs": 3562
     },
     {
       "order": 36,
-      "primitiveName": "LINEAGE",
-      "action": "LINEAGE applied agent-level hardening: Llm source · 13/24 signal hits · collision 84",
-      "durationMs": 7259
+      "primitiveName": "CLARITY",
+      "action": "CLARITY applied engine-level hardening: Llm source · 6/28 signal hits · collision 77",
+      "durationMs": 3380
     },
     {
       "order": 37,
-      "primitiveName": "BASTION",
-      "action": "BASTION applied engine-level hardening: Cyber source · 4/17 signal hits · collision 83",
-      "durationMs": 6906
+      "primitiveName": "HERALD",
+      "action": "HERALD applied agent-level hardening: Llm source · 8/28 signal hits · collision 77",
+      "durationMs": 8462
     },
     {
       "order": 38,
-      "primitiveName": "SYLLOGISM",
-      "action": "SYLLOGISM applied engine-level hardening: Llm source · 8/27 signal hits · collision 83",
-      "durationMs": 8371
+      "primitiveName": "ANCHOR",
+      "action": "ANCHOR applied agent-level hardening: Agency source · 7/21 signal hits · collision 77",
+      "durationMs": 8176
     },
     {
       "order": 39,
       "primitiveName": "SCRIBE",
-      "action": "SCRIBE applied engine-level hardening: Agency source · 8/21 signal hits · collision 83",
-      "durationMs": 3238
+      "action": "SCRIBE applied engine-level hardening: Agency source · 4/21 signal hits · collision 74",
+      "durationMs": 2643
     },
     {
       "order": 40,
-      "primitiveName": "IRONCLAD",
-      "action": "IRONCLAD applied agent-level hardening: Cyber source · 7/22 signal hits · collision 83",
-      "durationMs": 7076
+      "primitiveName": "PRISM",
+      "action": "PRISM applied agent-level hardening: Quantum source · 5/21 signal hits · collision 74",
+      "durationMs": 2453
     }
   ],
   "newCapabilities": [
     {
+      "name": "Skill-Based Task Router [Active]",
+      "description": "Matches tasks to agents based on competency matrices, current workload, and historical success rates. Detects bottlenecks and re-routes in real-time.",
+      "usageExample": "import { SkillRouter } from '@cmpsbl/agency';\nSkillRouter.assign(task, { strategy: 'competency' });"
+    },
+    {
       "name": "QCD Color Charge Simulator [Active]",
       "description": "Lattice QCD Monte Carlo simulation for gluon exchange, asymptotic freedom verification, and hadron mass computation from first principles.",
       "usageExample": "import { QCDSim } from '@cmpsbl/quantum';\nconst mass = QCDSim.lattice({ quarks: ['u', 'd'], beta: 6.0 });"
-    },
-    {
-      "name": "Particle Collision Analyzer [Active]",
-      "description": "Reconstructs collision events from detector data, clusters jets, identifies decay products, and computes invariant mass distributions.",
-      "usageExample": "import { CollisionAnalyzer } from '@cmpsbl/quantum';\nconst events = CollisionAnalyzer.reconstruct({ cms_energy: 13000 });"
     },
     {
       "name": "Context Persistence Layer [Passive]",
@@ -260,77 +260,71 @@
       "usageExample": "import { ContextLayer } from '@cmpsbl/agency';\nContextLayer.persist({ sessionId, context, ttl: '30d' });"
     },
     {
-      "name": "Neutrino Oscillation Predictor [Passive]",
-      "description": "Computes PMNS matrix parameters, predicts flavor transition probabilities over baseline distances, and models MSW matter effects.",
-      "usageExample": "import { NeutrinoOsc } from '@cmpsbl/quantum';\nconst prob = NeutrinoOsc.predict({ flavor: 'mu', baseline_km: 295 });"
+      "name": "Attack Chain Reconstructor [Passive]",
+      "description": "Traces lateral movement paths, reconstructs full attack timelines, detects privilege escalation, and identifies credential abuse chains.",
+      "usageExample": "import { AttackChain } from '@cmpsbl/cyber';\nconst timeline = AttackChain.reconstruct({ incidentId });"
     },
     {
-      "name": "Reinforcement Learning Loop [Hybrid]",
-      "description": "Tracks agent performance, applies reward signals, adjusts skill weights, and drives continuous improvement via competency scoring.",
-      "usageExample": "import { ReinforcementLoop } from '@cmpsbl/agency';\nReinforcementLoop.reward(agentId, { taskScore: 0.92 });"
+      "name": "Zero-Downtime Migrator [Hybrid]",
+      "description": "Observes data access patterns during migration, dual-writes to old and new schemas, and seamlessly cuts over when parity is confirmed.",
+      "usageExample": "import { Migrator } from '@cmpsbl/runtime';\nMigrator.dualWrite({ source: oldDb, target: newDb });"
     },
     {
-      "name": "Cryogenic Decoherence Shield [Hybrid]",
-      "description": "Models T1/T2 relaxation times, thermal photon flux, and Johnson-Nyquist noise to optimize dilution refrigerator staging for qubit coherence.",
-      "usageExample": "import { DecoherenceShield } from '@cmpsbl/quantum';\nDecoherenceShield.optimize({ stages: 4, base_temp_mK: 15 });"
+      "name": "Rate Limit Intelligence [Hybrid]",
+      "description": "Learns normal traffic patterns (passive) and dynamically adjusts rate limits per client/endpoint (active). Prevents abuse while preserving legitimate spikes.",
+      "usageExample": "import { RateLimiter } from '@cmpsbl/runtime';\nRateLimiter.adaptive({ learning: true });"
     },
     {
-      "name": "Skill-Based Task Router [Active]",
-      "description": "Matches tasks to agents based on competency matrices, current workload, and historical success rates. Detects bottlenecks and re-routes in real-time.",
-      "usageExample": "import { SkillRouter } from '@cmpsbl/agency';\nSkillRouter.assign(task, { strategy: 'competency' });"
+      "name": "Particle Collision Analyzer [Active]",
+      "description": "Reconstructs collision events from detector data, clusters jets, identifies decay products, and computes invariant mass distributions.",
+      "usageExample": "import { CollisionAnalyzer } from '@cmpsbl/quantum';\nconst events = CollisionAnalyzer.reconstruct({ cms_energy: 13000 });"
     },
     {
-      "name": "Self-Healing State Machine [Active]",
-      "description": "Monitors application state for corruption and automatically repairs inconsistencies using last-known-good snapshots.",
-      "usageExample": "import { SelfHealingState } from '@cmpsbl/runtime';\nSelfHealingState.watch({ snapshotInterval: 5000 });"
+      "name": "Forensic Incident Response [Active]",
+      "description": "Automates incident containment, evidence preservation, forensic timeline reconstruction, and root cause analysis. Executes playbooks autonomously.",
+      "usageExample": "import { ForensicIR } from '@cmpsbl/cyber';\nForensicIR.contain({ incidentId, preserveEvidence: true });"
     },
     {
-      "name": "Quantum Circuit Optimizer [Active]",
-      "description": "Transpiles and optimizes quantum gate sequences for target hardware. Reduces gate depth, minimizes CNOT count, and applies noise-aware routing.",
-      "usageExample": "import { CircuitOptimizer } from '@cmpsbl/quantum';\nCircuitOptimizer.transpile({ backend: 'ibm_eagle', optimization: 3 });"
+      "name": "Mission Decomposer [Active]",
+      "description": "Breaks complex user objectives into executable sub-tasks with dependency graphs, priority scoring, and deadline-aware scheduling. Handles re-planning on failure.",
+      "usageExample": "import { MissionDecomposer } from '@cmpsbl/agency';\nconst plan = MissionDecomposer.plan({ objective, deadline });"
     },
     {
-      "name": "Zero-Trust Perimeter Enforcer [Active]",
-      "description": "Enforces micro-segmentation and least-privilege access across every service boundary. Continuous identity verification with trust scoring.",
-      "usageExample": "import { ZeroTrust } from '@cmpsbl/cyber';\nZeroTrust.enforce({ segment: 'api', trustThreshold: 0.9 });"
+      "name": "Content Generation Engine [Active]",
+      "description": "Structured content drafting with style adherence, audience targeting, format templating, and iterative revision loops.",
+      "usageExample": "import { ContentGen } from '@cmpsbl/agency';\nconst draft = ContentGen.write({ brief, style: 'technical' });"
     }
   ],
   "vulnerabilityAssessment": [
     {
-      "severity": "critical",
-      "title": "Dynamic code execution vulnerability",
-      "status": "hardened",
-      "details": "eval(), Function(), or exec() detected — injection vector for arbitrary code execution."
+      "severity": "warning",
+      "title": "Synchronous-only architecture",
+      "status": "mitigated",
+      "details": "No async patterns found in substantial codebase. May block the event loop under load."
     },
     {
       "severity": "warning",
-      "title": "Unvalidated request input",
+      "title": "High cyclomatic complexity (335)",
       "status": "mitigated",
-      "details": "Request parameters accessed without validation. Risk of injection and malformed data processing."
+      "details": "Complexity score of 335 indicates too many branching paths. Hard to test and maintain."
     },
     {
       "severity": "warning",
-      "title": "High cyclomatic complexity (1146)",
+      "title": "12 technical debt markers found",
       "status": "mitigated",
-      "details": "Complexity score of 1146 indicates too many branching paths. Hard to test and maintain."
+      "details": "12 TODO/FIXME/HACK/XXX markers indicate deferred work. ORACLE estimates this compounds into architectural risk within 12 months."
     },
     {
       "severity": "warning",
-      "title": "8 technical debt markers found",
+      "title": "High dependency coupling (107 imports)",
       "status": "mitigated",
-      "details": "8 TODO/FIXME/HACK/XXX markers indicate deferred work. ORACLE estimates this compounds into architectural risk within 12 months."
+      "details": "107 imports detected — high coupling increases blast radius of dependency failures."
     },
     {
       "severity": "warning",
-      "title": "High dependency coupling (331 imports)",
+      "title": "Monolithic file (2202 lines)",
       "status": "mitigated",
-      "details": "331 imports detected — high coupling increases blast radius of dependency failures."
-    },
-    {
-      "severity": "warning",
-      "title": "Monolithic file (4892 lines)",
-      "status": "mitigated",
-      "details": "4892 lines in a single file. ENGINEER recommends decomposition to reduce cognitive load."
+      "details": "2202 lines in a single file. ENGINEER recommends decomposition to reduce cognitive load."
     },
     {
       "severity": "info",
@@ -340,33 +334,9 @@
     },
     {
       "severity": "info",
-      "title": "28 classes in single file",
+      "title": "26 classes in single file",
       "status": "monitor",
       "details": "Multiple classes in one file suggest God Object patterns. ENGINEER recommends single-class files."
-    },
-    {
-      "severity": "warning",
-      "title": "Deprecated API usage detected",
-      "status": "mitigated",
-      "details": "Code references deprecated APIs. Structural rot accumulates — these should be replaced before they break."
-    },
-    {
-      "severity": "warning",
-      "title": "Insecure HTTP protocol usage",
-      "status": "mitigated",
-      "details": "Non-HTTPS URLs detected. Data transmitted in plaintext is vulnerable to interception."
-    },
-    {
-      "severity": "warning",
-      "title": "No graceful shutdown handler",
-      "status": "mitigated",
-      "details": "Server starts without SIGTERM/SIGINT handling. Abrupt shutdowns may corrupt in-flight operations."
-    },
-    {
-      "severity": "critical",
-      "title": "Unhandled async rejections",
-      "status": "hardened",
-      "details": "Async code without catch blocks. Unhandled rejections crash Node.js processes in production."
     }
   ],
   "errorCodes": [
@@ -404,154 +374,74 @@
     ]
   },
   "cjpiCertificate": {
-    "serialNumber": "CMPSBL-MNKQ1LXE-X0ZD",
+    "serialNumber": "CMPSBL-MNL4L8DE-RM6Z",
     "score": 100,
     "tier": "Apex",
-    "fingerprint": "504ac991648533ac",
-    "discoveryDate": "2026-04-04T19:24:32.453Z",
+    "fingerprint": "b1453c3f64c62891",
+    "discoveryDate": "2026-04-05T02:11:42.629Z",
     "primitiveChain": [
-      "CONDUIT",
+      "TOOLKIT",
       "ORACLE",
-      "APEX",
-      "GENESIS",
-      "CRUCIBLE",
+      "SENTINEL",
+      "NOMAD",
+      "MEMORY",
       "LEXICON",
+      "CUSTODIAN",
+      "FLUX",
+      "CATALYST",
+      "ARBITER",
+      "OPERATOR",
+      "APEX",
+      "RAMPART",
+      "TETHER",
       "LIDAR",
       "DELEGATE",
-      "TOOLKIT",
-      "PRISM",
-      "FLUX",
-      "DYNAMO",
-      "SENTINEL",
-      "CATALYST",
-      "HERALD",
+      "CONDUIT",
+      "GENESIS",
+      "CRUCIBLE",
       "PHOENIX",
-      "SIEVE",
-      "TENSOR",
-      "NEUTRINO",
-      "TETHER",
-      "MEMORY",
-      "CUSTODIAN",
-      "GRIPPER",
-      "QUBIT",
-      "OPERATOR",
       "SERVO",
-      "HADRON",
-      "RAMPART",
-      "RECONN",
-      "CLARITY",
-      "FULCRUM",
-      "MARSHAL",
-      "TACHYON",
-      "MESON",
-      "PRISM",
-      "LINEAGE",
-      "BASTION",
+      "VERITAS",
+      "UPLINK",
       "SYLLOGISM",
+      "MANDATE",
+      "PRISM",
+      "BASTION",
+      "HADRON",
+      "ENCODE",
+      "VANGUARD",
+      "MESON",
+      "BRAIN",
+      "KINETIC",
+      "TENSOR",
+      "SWARM",
+      "CLARITY",
+      "HERALD",
+      "ANCHOR",
       "SCRIBE",
-      "IRONCLAD"
+      "PRISM"
     ]
   },
   "primitiveManifest": [
     {
-      "name": "CONDUIT",
+      "name": "TOOLKIT",
       "category": "Engine",
-      "contribution": "Ultimate source · 4/10 signal hits · collision 98"
+      "contribution": "Agency source · 9/23 signal hits · collision 94"
     },
     {
       "name": "ORACLE",
       "category": "Agent",
-      "contribution": "Ultimate source · 7/10 signal hits · collision 98"
-    },
-    {
-      "name": "APEX",
-      "category": "Engine",
-      "contribution": "Ultimate source · 8/11 signal hits · collision 96"
-    },
-    {
-      "name": "GENESIS",
-      "category": "Engine",
       "contribution": "Ultimate source · 6/10 signal hits · collision 94"
-    },
-    {
-      "name": "CRUCIBLE",
-      "category": "Engine",
-      "contribution": "Ultimate source · 7/11 signal hits · collision 94"
-    },
-    {
-      "name": "LEXICON",
-      "category": "Engine",
-      "contribution": "Llm source · 12/26 signal hits · collision 93"
-    },
-    {
-      "name": "LIDAR",
-      "category": "Engine",
-      "contribution": "Robotics source · 14/29 signal hits · collision 92"
-    },
-    {
-      "name": "DELEGATE",
-      "category": "Engine",
-      "contribution": "Agency source · 14/26 signal hits · collision 92"
-    },
-    {
-      "name": "TOOLKIT",
-      "category": "Engine",
-      "contribution": "Agency source · 10/23 signal hits · collision 90"
-    },
-    {
-      "name": "PRISM",
-      "category": "Engine",
-      "contribution": "Ultimate source · 8/12 signal hits · collision 90"
-    },
-    {
-      "name": "FLUX",
-      "category": "Engine",
-      "contribution": "Ultimate source · 6/12 signal hits · collision 90"
-    },
-    {
-      "name": "DYNAMO",
-      "category": "Engine",
-      "contribution": "Ultimate source · 5/12 signal hits · collision 90"
     },
     {
       "name": "SENTINEL",
       "category": "Agent",
-      "contribution": "Ultimate source · 5/10 signal hits · collision 90"
-    },
-    {
-      "name": "CATALYST",
-      "category": "Agent",
-      "contribution": "Ultimate source · 4/10 signal hits · collision 90"
-    },
-    {
-      "name": "HERALD",
-      "category": "Agent",
       "contribution": "Ultimate source · 3/10 signal hits · collision 90"
     },
     {
-      "name": "PHOENIX",
+      "name": "NOMAD",
       "category": "Agent",
-      "contribution": "Ultimate source · 5/10 signal hits · collision 90"
-    },
-    {
-      "name": "SIEVE",
-      "category": "Engine",
-      "contribution": "Llm source · 8/26 signal hits · collision 89"
-    },
-    {
-      "name": "TENSOR",
-      "category": "Engine",
-      "contribution": "Robotics source · 11/26 signal hits · collision 89"
-    },
-    {
-      "name": "NEUTRINO",
-      "category": "Agent",
-      "contribution": "Quantum source · 8/23 signal hits · collision 89"
-    },
-    {
-      "name": "TETHER",
-      "category": "Engine",
-      "contribution": "Llm source · 7/26 signal hits · collision 89"
+      "contribution": "Ultimate source · 8/10 signal hits · collision 90"
     },
     {
       "name": "MEMORY",
@@ -559,99 +449,179 @@
       "contribution": "Shared substrate · 7/10 signal hits · collision 88"
     },
     {
+      "name": "LEXICON",
+      "category": "Engine",
+      "contribution": "Llm source · 5/26 signal hits · collision 88"
+    },
+    {
       "name": "CUSTODIAN",
       "category": "Agent",
-      "contribution": "Llm source · 12/26 signal hits · collision 88"
+      "contribution": "Llm source · 5/26 signal hits · collision 87"
     },
     {
-      "name": "GRIPPER",
-      "category": "Agent",
-      "contribution": "Robotics source · 8/17 signal hits · collision 87"
-    },
-    {
-      "name": "QUBIT",
+      "name": "FLUX",
       "category": "Engine",
-      "contribution": "Quantum source · 10/24 signal hits · collision 87"
+      "contribution": "Ultimate source · 3/12 signal hits · collision 87"
+    },
+    {
+      "name": "CATALYST",
+      "category": "Agent",
+      "contribution": "Ultimate source · 2/10 signal hits · collision 87"
+    },
+    {
+      "name": "ARBITER",
+      "category": "Agent",
+      "contribution": "Ultimate source · 4/11 signal hits · collision 87"
     },
     {
       "name": "OPERATOR",
       "category": "Agent",
-      "contribution": "Agency source · 10/25 signal hits · collision 87"
+      "contribution": "Agency source · 6/25 signal hits · collision 87"
     },
     {
-      "name": "SERVO",
+      "name": "APEX",
       "category": "Engine",
-      "contribution": "Robotics source · 9/28 signal hits · collision 86"
-    },
-    {
-      "name": "HADRON",
-      "category": "Engine",
-      "contribution": "Quantum source · 11/32 signal hits · collision 86"
+      "contribution": "Ultimate source · 2/11 signal hits · collision 86"
     },
     {
       "name": "RAMPART",
       "category": "Engine",
-      "contribution": "Llm source · 11/28 signal hits · collision 86"
+      "contribution": "Llm source · 7/28 signal hits · collision 86"
     },
     {
-      "name": "RECONN",
+      "name": "TETHER",
       "category": "Engine",
-      "contribution": "Agency source · 7/20 signal hits · collision 86"
+      "contribution": "Llm source · 5/26 signal hits · collision 84"
     },
     {
-      "name": "CLARITY",
+      "name": "LIDAR",
       "category": "Engine",
-      "contribution": "Llm source · 9/28 signal hits · collision 85"
+      "contribution": "Robotics source · 7/29 signal hits · collision 83"
     },
     {
-      "name": "FULCRUM",
+      "name": "DELEGATE",
       "category": "Engine",
-      "contribution": "Llm source · 7/26 signal hits · collision 85"
+      "contribution": "Agency source · 6/26 signal hits · collision 83"
     },
     {
-      "name": "MARSHAL",
-      "category": "Agent",
-      "contribution": "Robotics source · 5/22 signal hits · collision 84"
-    },
-    {
-      "name": "TACHYON",
-      "category": "Agent",
-      "contribution": "Quantum source · 10/25 signal hits · collision 84"
-    },
-    {
-      "name": "MESON",
-      "category": "Agent",
-      "contribution": "Quantum source · 11/16 signal hits · collision 84"
-    },
-    {
-      "name": "PRISM",
-      "category": "Agent",
-      "contribution": "Quantum source · 7/21 signal hits · collision 84"
-    },
-    {
-      "name": "LINEAGE",
-      "category": "Agent",
-      "contribution": "Llm source · 13/24 signal hits · collision 84"
-    },
-    {
-      "name": "BASTION",
+      "name": "CONDUIT",
       "category": "Engine",
-      "contribution": "Cyber source · 4/17 signal hits · collision 83"
+      "contribution": "Ultimate source · 2/10 signal hits · collision 83"
+    },
+    {
+      "name": "GENESIS",
+      "category": "Engine",
+      "contribution": "Ultimate source · 4/10 signal hits · collision 83"
+    },
+    {
+      "name": "CRUCIBLE",
+      "category": "Engine",
+      "contribution": "Ultimate source · 4/11 signal hits · collision 83"
+    },
+    {
+      "name": "PHOENIX",
+      "category": "Agent",
+      "contribution": "Ultimate source · 5/10 signal hits · collision 83"
+    },
+    {
+      "name": "SERVO",
+      "category": "Engine",
+      "contribution": "Robotics source · 7/28 signal hits · collision 82"
+    },
+    {
+      "name": "VERITAS",
+      "category": "Engine",
+      "contribution": "Llm source · 10/34 signal hits · collision 82"
+    },
+    {
+      "name": "UPLINK",
+      "category": "Engine",
+      "contribution": "Agency source · 7/21 signal hits · collision 81"
     },
     {
       "name": "SYLLOGISM",
       "category": "Engine",
-      "contribution": "Llm source · 8/27 signal hits · collision 83"
+      "contribution": "Llm source · 5/27 signal hits · collision 81"
+    },
+    {
+      "name": "MANDATE",
+      "category": "Engine",
+      "contribution": "Agency source · 5/27 signal hits · collision 80"
+    },
+    {
+      "name": "PRISM",
+      "category": "Engine",
+      "contribution": "Ultimate source · 3/12 signal hits · collision 80"
+    },
+    {
+      "name": "BASTION",
+      "category": "Engine",
+      "contribution": "Cyber source · 3/17 signal hits · collision 79"
+    },
+    {
+      "name": "HADRON",
+      "category": "Engine",
+      "contribution": "Quantum source · 9/32 signal hits · collision 79"
+    },
+    {
+      "name": "ENCODE",
+      "category": "Layer",
+      "contribution": "Shared substrate · 4/7 signal hits · collision 78"
+    },
+    {
+      "name": "VANGUARD",
+      "category": "Engine",
+      "contribution": "Cyber source · 3/18 signal hits · collision 78"
+    },
+    {
+      "name": "MESON",
+      "category": "Agent",
+      "contribution": "Quantum source · 3/16 signal hits · collision 77"
+    },
+    {
+      "name": "BRAIN",
+      "category": "Organ",
+      "contribution": "Shared substrate · 3/9 signal hits · collision 77"
+    },
+    {
+      "name": "KINETIC",
+      "category": "Engine",
+      "contribution": "Robotics source · 10/22 signal hits · collision 77"
+    },
+    {
+      "name": "TENSOR",
+      "category": "Engine",
+      "contribution": "Robotics source · 8/26 signal hits · collision 77"
+    },
+    {
+      "name": "SWARM",
+      "category": "Agent",
+      "contribution": "Robotics source · 7/20 signal hits · collision 77"
+    },
+    {
+      "name": "CLARITY",
+      "category": "Engine",
+      "contribution": "Llm source · 6/28 signal hits · collision 77"
+    },
+    {
+      "name": "HERALD",
+      "category": "Agent",
+      "contribution": "Llm source · 8/28 signal hits · collision 77"
+    },
+    {
+      "name": "ANCHOR",
+      "category": "Agent",
+      "contribution": "Agency source · 7/21 signal hits · collision 77"
     },
     {
       "name": "SCRIBE",
       "category": "Engine",
-      "contribution": "Agency source · 8/21 signal hits · collision 83"
+      "contribution": "Agency source · 4/21 signal hits · collision 74"
     },
     {
-      "name": "IRONCLAD",
+      "name": "PRISM",
       "category": "Agent",
-      "contribution": "Cyber source · 7/22 signal hits · collision 83"
+      "contribution": "Quantum source · 5/21 signal hits · collision 74"
     }
   ]
 }

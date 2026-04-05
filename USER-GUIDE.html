@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>modeling_utils — User Guide — CMPSBL®</title>
+<title>serialization — User Guide — CMPSBL®</title>
 <style>
 :root {
   --accent: #c9a84c;
@@ -292,9 +292,9 @@ tr:last-child td { border-bottom: none; }
 
 <div class="doc-header">
   <div class="doc-issuer">CMPSBL® Substrate · Software Export</div>
-  <h1 class="doc-title">modeling_utils — User Guide</h1>
+  <h1 class="doc-title">serialization — User Guide</h1>
   <p class="doc-subtitle">Complete activation, deployment, and testing guide for this Ascension Export</p>
-  <div class="doc-serial">504ac991648533ac</div>
+  <div class="doc-serial">b1453c3f64c62891</div>
   <div class="doc-meta">
     <span class="doc-meta-item"><strong>Tier:</strong> Apex</span>
     <span class="doc-meta-item"><strong>CJPI:</strong> 100</span>
@@ -307,10 +307,10 @@ tr:last-child td { border-bottom: none; }
 <div class="section">
   <div class="section-title"><span class="dot"></span> About This Software</div>
   <div class="card">
-    <p><strong>modeling_utils</strong> is a <strong>Ascension Export</strong> from the CMPSBL® Substrate.</p>
+    <p><strong>serialization</strong> is a <strong>Ascension Export</strong> from the CMPSBL® Substrate.</p>
     <p>This is a <strong>Sealed Runtime</strong> — a production-grade, zero-dependency artifact that runs standalone in any TypeScript/JavaScript environment. The Mini-Runtime Engine is embedded directly in the source file. No additional packages required.</p>
     <p><strong>CJPI Score:</strong> 100/100 · <strong>Tier:</strong> Apex · <strong>Version:</strong> 1.0.0</p>
-    <p><strong>Primitive Chain:</strong> CONDUIT, ORACLE, APEX, GENESIS, CRUCIBLE, LEXICON, LIDAR, DELEGATE, TOOLKIT, PRISM, FLUX, DYNAMO, SENTINEL, CATALYST, HERALD, PHOENIX, SIEVE, TENSOR, NEUTRINO, TETHER, MEMORY, CUSTODIAN, GRIPPER, QUBIT, OPERATOR, SERVO, HADRON, RAMPART, RECONN, CLARITY, FULCRUM, MARSHAL, TACHYON, MESON, PRISM, LINEAGE, BASTION, SYLLOGISM, SCRIBE, IRONCLAD</p>
+    <p><strong>Primitive Chain:</strong> TOOLKIT, ORACLE, SENTINEL, NOMAD, MEMORY, LEXICON, CUSTODIAN, FLUX, CATALYST, ARBITER, OPERATOR, APEX, RAMPART, TETHER, LIDAR, DELEGATE, CONDUIT, GENESIS, CRUCIBLE, PHOENIX, SERVO, VERITAS, UPLINK, SYLLOGISM, MANDATE, PRISM, BASTION, HADRON, ENCODE, VANGUARD, MESON, BRAIN, KINETIC, TENSOR, SWARM, CLARITY, HERALD, ANCHOR, SCRIBE, PRISM</p>
   </div>
 </div>
 
@@ -320,10 +320,10 @@ tr:last-child td { border-bottom: none; }
   <h3>Option A: Standalone (Recommended)</h3>
   <p>Copy the source file into your project and import directly. Zero config.</p>
   <pre><code># Copy into your project
-cp refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts ./src/vendor/cmpsbl/
+cp refurbished-CMPSBL-MNL4L8DE-RM6Z.ts ./src/vendor/cmpsbl/
 
 # Import and use
-import { init, process } from './vendor/cmpsbl/refurbished-CMPSBL-MNKQ1LXE-X0ZD';
+import { init, process } from './vendor/cmpsbl/refurbished-CMPSBL-MNL4L8DE-RM6Z';
 
 const instance = init();
 const result = await instance.process({ input: 'your-data' });</code></pre>
@@ -337,7 +337,7 @@ const client = new CMPSBL();
 
   <h3>Option C: CLI Activation</h3>
   <pre><code>npm install -g @cmpsbl/cli
-cmpsbl activate refurbished-CMPSBL-MNKQ1LXE-X0ZD
+cmpsbl activate refurbished-CMPSBL-MNL4L8DE-RM6Z
 cmpsbl status</code></pre>
 </div>
 
@@ -395,34 +395,34 @@ cmpsbl status</code></pre>
 
   <h3>A. Node.js / Bun / Deno</h3>
   <pre><code># Run directly
-npx tsx src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts
+npx tsx src/refurbished-CMPSBL-MNL4L8DE-RM6Z.ts
 
 # Or compile and run
-npx tsc src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts --outDir dist
-node dist/refurbished-CMPSBL-MNKQ1LXE-X0ZD.js</code></pre>
+npx tsc src/refurbished-CMPSBL-MNL4L8DE-RM6Z.ts --outDir dist
+node dist/refurbished-CMPSBL-MNL4L8DE-RM6Z.js</code></pre>
 
   <h3>B. Docker</h3>
   <pre><code>FROM node:20-alpine
 WORKDIR /app
 COPY . .
 RUN npm install -g tsx
-CMD ["npx", "tsx", "src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts"]</code></pre>
+CMD ["npx", "tsx", "src/refurbished-CMPSBL-MNL4L8DE-RM6Z.ts"]</code></pre>
 
   <h3>C. Serverless (AWS Lambda / Vercel / Cloudflare)</h3>
   <pre><code># Bundle as a single file — zero dependencies
-npx esbuild src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts --bundle --platform=node --outfile=handler.js
+npx esbuild src/refurbished-CMPSBL-MNL4L8DE-RM6Z.ts --bundle --platform=node --outfile=handler.js
 
 # Deploy the single handler.js file to your serverless provider</code></pre>
 
   <h3>D. Embed in Existing Stack</h3>
   <pre><code>// Express.js example
 import express from 'express';
-import { init, process } from './refurbished-CMPSBL-MNKQ1LXE-X0ZD';
+import { init, process } from './refurbished-CMPSBL-MNL4L8DE-RM6Z';
 
 const app = express();
 const runtime = init();
 
-app.post('/api/refurbished-CMPSBL-MNKQ1LXE-X0ZD', async (req, res) =&gt; {
+app.post('/api/refurbished-CMPSBL-MNL4L8DE-RM6Z', async (req, res) =&gt; {
   const result = await runtime.process(req.body);
   res.json(result);
 });
@@ -521,7 +521,7 @@ console.log(getRuntimeMode()); // 'network'</code></pre>
   <div class="section-title"><span class="dot"></span> 8. Support</div>
   <div class="card">
     <p>Visit <strong>cmpsbl.com</strong> for documentation, updates, and support.</p>
-    <p>Use your <strong>Fingerprint ID</strong> (<code>504ac991648533ac</code>) to have DECODE retrieve your export context for personalized support.</p>
+    <p>Use your <strong>Fingerprint ID</strong> (<code>b1453c3f64c62891</code>) to have DECODE retrieve your export context for personalized support.</p>
     <p><strong>NPM Packages:</strong></p>
     <ul>
       <li><code>@cmpsbl/sdk</code> — Full SDK for runtime activation</li>

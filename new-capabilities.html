@@ -303,26 +303,26 @@ tr:last-child td { border-bottom: none; }
   
 </div>
 
-<div class="card"><h3>QCD Color Charge Simulator [Active]</h3><p>Lattice QCD Monte Carlo simulation for gluon exchange, asymptotic freedom verification, and hadron mass computation from first principles.</p><pre><code>import { QCDSim } from '@cmpsbl/quantum';
-const mass = QCDSim.lattice({ quarks: ['u', 'd'], beta: 6.0 });</code></pre></div>
-<div class="card"><h3>Particle Collision Analyzer [Active]</h3><p>Reconstructs collision events from detector data, clusters jets, identifies decay products, and computes invariant mass distributions.</p><pre><code>import { CollisionAnalyzer } from '@cmpsbl/quantum';
-const events = CollisionAnalyzer.reconstruct({ cms_energy: 13000 });</code></pre></div>
-<div class="card"><h3>Context Persistence Layer [Passive]</h3><p>Maintains agent context across sessions with long-term memory, conversation threading, and knowledge graph integration for continuity.</p><pre><code>import { ContextLayer } from '@cmpsbl/agency';
-ContextLayer.persist({ sessionId, context, ttl: '30d' });</code></pre></div>
-<div class="card"><h3>Neutrino Oscillation Predictor [Passive]</h3><p>Computes PMNS matrix parameters, predicts flavor transition probabilities over baseline distances, and models MSW matter effects.</p><pre><code>import { NeutrinoOsc } from '@cmpsbl/quantum';
-const prob = NeutrinoOsc.predict({ flavor: 'mu', baseline_km: 295 });</code></pre></div>
-<div class="card"><h3>Reinforcement Learning Loop [Hybrid]</h3><p>Tracks agent performance, applies reward signals, adjusts skill weights, and drives continuous improvement via competency scoring.</p><pre><code>import { ReinforcementLoop } from '@cmpsbl/agency';
-ReinforcementLoop.reward(agentId, { taskScore: 0.92 });</code></pre></div>
-<div class="card"><h3>Cryogenic Decoherence Shield [Hybrid]</h3><p>Models T1/T2 relaxation times, thermal photon flux, and Johnson-Nyquist noise to optimize dilution refrigerator staging for qubit coherence.</p><pre><code>import { DecoherenceShield } from '@cmpsbl/quantum';
-DecoherenceShield.optimize({ stages: 4, base_temp_mK: 15 });</code></pre></div>
 <div class="card"><h3>Skill-Based Task Router [Active]</h3><p>Matches tasks to agents based on competency matrices, current workload, and historical success rates. Detects bottlenecks and re-routes in real-time.</p><pre><code>import { SkillRouter } from '@cmpsbl/agency';
 SkillRouter.assign(task, { strategy: 'competency' });</code></pre></div>
-<div class="card"><h3>Self-Healing State Machine [Active]</h3><p>Monitors application state for corruption and automatically repairs inconsistencies using last-known-good snapshots.</p><pre><code>import { SelfHealingState } from '@cmpsbl/runtime';
-SelfHealingState.watch({ snapshotInterval: 5000 });</code></pre></div>
-<div class="card"><h3>Quantum Circuit Optimizer [Active]</h3><p>Transpiles and optimizes quantum gate sequences for target hardware. Reduces gate depth, minimizes CNOT count, and applies noise-aware routing.</p><pre><code>import { CircuitOptimizer } from '@cmpsbl/quantum';
-CircuitOptimizer.transpile({ backend: 'ibm_eagle', optimization: 3 });</code></pre></div>
-<div class="card"><h3>Zero-Trust Perimeter Enforcer [Active]</h3><p>Enforces micro-segmentation and least-privilege access across every service boundary. Continuous identity verification with trust scoring.</p><pre><code>import { ZeroTrust } from '@cmpsbl/cyber';
-ZeroTrust.enforce({ segment: 'api', trustThreshold: 0.9 });</code></pre></div>
+<div class="card"><h3>QCD Color Charge Simulator [Active]</h3><p>Lattice QCD Monte Carlo simulation for gluon exchange, asymptotic freedom verification, and hadron mass computation from first principles.</p><pre><code>import { QCDSim } from '@cmpsbl/quantum';
+const mass = QCDSim.lattice({ quarks: ['u', 'd'], beta: 6.0 });</code></pre></div>
+<div class="card"><h3>Context Persistence Layer [Passive]</h3><p>Maintains agent context across sessions with long-term memory, conversation threading, and knowledge graph integration for continuity.</p><pre><code>import { ContextLayer } from '@cmpsbl/agency';
+ContextLayer.persist({ sessionId, context, ttl: '30d' });</code></pre></div>
+<div class="card"><h3>Attack Chain Reconstructor [Passive]</h3><p>Traces lateral movement paths, reconstructs full attack timelines, detects privilege escalation, and identifies credential abuse chains.</p><pre><code>import { AttackChain } from '@cmpsbl/cyber';
+const timeline = AttackChain.reconstruct({ incidentId });</code></pre></div>
+<div class="card"><h3>Zero-Downtime Migrator [Hybrid]</h3><p>Observes data access patterns during migration, dual-writes to old and new schemas, and seamlessly cuts over when parity is confirmed.</p><pre><code>import { Migrator } from '@cmpsbl/runtime';
+Migrator.dualWrite({ source: oldDb, target: newDb });</code></pre></div>
+<div class="card"><h3>Rate Limit Intelligence [Hybrid]</h3><p>Learns normal traffic patterns (passive) and dynamically adjusts rate limits per client/endpoint (active). Prevents abuse while preserving legitimate spikes.</p><pre><code>import { RateLimiter } from '@cmpsbl/runtime';
+RateLimiter.adaptive({ learning: true });</code></pre></div>
+<div class="card"><h3>Particle Collision Analyzer [Active]</h3><p>Reconstructs collision events from detector data, clusters jets, identifies decay products, and computes invariant mass distributions.</p><pre><code>import { CollisionAnalyzer } from '@cmpsbl/quantum';
+const events = CollisionAnalyzer.reconstruct({ cms_energy: 13000 });</code></pre></div>
+<div class="card"><h3>Forensic Incident Response [Active]</h3><p>Automates incident containment, evidence preservation, forensic timeline reconstruction, and root cause analysis. Executes playbooks autonomously.</p><pre><code>import { ForensicIR } from '@cmpsbl/cyber';
+ForensicIR.contain({ incidentId, preserveEvidence: true });</code></pre></div>
+<div class="card"><h3>Mission Decomposer [Active]</h3><p>Breaks complex user objectives into executable sub-tasks with dependency graphs, priority scoring, and deadline-aware scheduling. Handles re-planning on failure.</p><pre><code>import { MissionDecomposer } from '@cmpsbl/agency';
+const plan = MissionDecomposer.plan({ objective, deadline });</code></pre></div>
+<div class="card"><h3>Content Generation Engine [Active]</h3><p>Structured content drafting with style adherence, audience targeting, format templating, and iterative revision loops.</p><pre><code>import { ContentGen } from '@cmpsbl/agency';
+const draft = ContentGen.write({ brief, style: 'technical' });</code></pre></div>
 
 <div class="doc-footer">
   <p><strong>CMPSBL®</strong> — Governed Cognitive Infrastructure</p>
