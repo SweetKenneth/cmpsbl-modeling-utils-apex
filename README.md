@@ -124,3 +124,5 @@ The CMPSBL® substrate, primitive matrix, collision algorithms, CJPI formula, an
 © 2026 Kenneth E. Sweet Jr. · PromptFluid™ · CMPSBL®
 
 ORCID: 0009-0001-4237-1243
+
+Patent Pending 04/05/2026
