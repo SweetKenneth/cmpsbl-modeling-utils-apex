@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>modeling_utils — User Guide — CMPSBL®</title>
+<style>
+:root {
+  --accent: #c9a84c;
+  --accent-dim: #c9a84c1a;
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --surface-2: #1c1c1f;
+  --border: #27272a;
+  --border-subtle: #1f1f23;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+}
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  /* Prevent underscore word breaks */
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* ─── Typography ─── */
+h1 { font-size: 1.625rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.125rem; font-weight: 700; margin: 2rem 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 0.5rem; }
+h3 { font-size: 1rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: var(--text); }
+h4 { font-size: 0.875rem; font-weight: 600; margin: 1rem 0 0.375rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+p { color: var(--text-muted); margin-bottom: 0.875rem; font-size: 0.9375rem; line-height: 1.7; }
+strong { color: var(--text); font-weight: 600; }
+em { color: var(--text-muted); }
+
+/* ─── Lists ─── */
+ul, ol { padding-left: 1.5rem; margin: 0.75rem 0 1rem; }
+li { margin-bottom: 0.5rem; color: var(--text-muted); font-size: 0.9375rem; line-height: 1.6; }
+li::marker { color: var(--accent); }
+
+/* ─── Code ─── */
+code {
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.8125rem;
+  background: rgba(39,39,42,0.6);
+  padding: 0.15rem 0.45rem;
+  border-radius: 0.3rem;
+  /* Prevent long module names from being broken at underscores */
+  word-break: keep-all;
+  white-space: nowrap;
+}
+pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.125rem 1.25rem;
+  font-size: 0.8125rem;
+  overflow-x: auto;
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
+  line-height: 1.6;
+  margin: 0.75rem 0 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+pre code { background: none; padding: 0; white-space: pre; word-break: normal; }
+
+/* ─── Header ─── */
+.doc-header {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, var(--surface), var(--bg));
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.doc-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+.doc-issuer {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+.doc-title { font-size: 1.625rem; font-weight: 800; margin-bottom: 0.375rem; }
+.doc-subtitle { font-size: 0.9375rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 400; }
+.doc-serial {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-dim);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  margin-top: 0.75rem;
+}
+.doc-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.doc-meta-item {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+.doc-meta-item strong {
+  color: var(--text-muted);
+}
+
+/* ─── Section ─── */
+.section { margin-bottom: 2rem; }
+.section-title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ─── Cards ─── */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  margin-bottom: 0.75rem;
+}
+.card-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.card-value {
+  font-size: 1.375rem;
+  font-weight: 800;
+}
+
+/* ─── Grids ─── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+
+/* ─── Tables ─── */
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 0.75rem 0; }
+thead th {
+  text-align: left;
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+td {
+  padding: 0.625rem 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  /* Prevent underscored names from breaking awkwardly */
+  word-break: keep-all;
+}
+tr:last-child td { border-bottom: none; }
+
+/* ─── Badges ─── */
+.badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.375rem;
+  margin-right: 0.25rem;
+}
+.badge-accent { background: var(--accent-dim); color: var(--accent); }
+.badge-success { background: rgba(34,197,94,0.15); color: var(--success); }
+.badge-warning { background: rgba(245,158,11,0.15); color: var(--warning); }
+.badge-error { background: rgba(239,68,68,0.15); color: var(--error); }
+.badge-info { background: rgba(59,130,246,0.15); color: var(--info); }
+.badge-muted { background: rgba(113,113,122,0.1); color: var(--text-dim); }
+
+/* ─── Steps ─── */
+.step-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.625rem 0; border-bottom: 1px solid var(--border-subtle); }
+.step-row:last-child { border-bottom: none; }
+.step-num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--accent-dim);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+}
+.step-content { flex: 1; }
+.step-label { font-weight: 600; color: var(--text); font-size: 0.9375rem; }
+.step-detail { color: var(--text-muted); font-size: 0.8125rem; margin-top: 0.25rem; }
+
+/* ─── Callouts ─── */
+.callout {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  margin: 1rem 0;
+}
+.callout-warning { border-left-color: var(--warning); }
+.callout-error { border-left-color: var(--error); }
+.callout-success { border-left-color: var(--success); }
+
+/* ─── Footer ─── */
+.doc-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+  line-height: 1.8;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 680px) {
+  body { padding: 1rem; font-size: 0.9375rem; }
+  .doc-header { padding: 2rem 1.25rem; }
+  .doc-title { font-size: 1.375rem; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  table { font-size: 0.8125rem; }
+  thead th, td { padding: 0.5rem; }
+  pre { padding: 0.875rem; font-size: 0.75rem; }
+  .doc-meta { gap: 0.75rem; }
+}
+@media (max-width: 400px) {
+  body { padding: 0.75rem; }
+  .doc-header { padding: 1.5rem 1rem; border-radius: 0.75rem; }
+  .doc-title { font-size: 1.25rem; }
+  h2 { font-size: 1rem; }
+  .card { padding: 0.75rem 1rem; }
+}
+
+/* ─── Print ─── */
+@media print {
+  body { background: white; color: #1a1a1f; padding: 0; max-width: 100%; }
+  .doc-header { border: 2px solid #1a1a1f; background: none; }
+  .doc-header::before { display: none; }
+  .card, .callout { border-color: #d4d4d8; background: #fafafa; }
+  code { background: #f4f4f5; }
+  pre { background: #fafafa; border-color: #d4d4d8; }
+  .badge { border: 1px solid currentColor; }
+  .doc-footer { border-color: #d4d4d8; }
+}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="doc-issuer">CMPSBL® Substrate · Software Export</div>
+  <h1 class="doc-title">modeling_utils — User Guide</h1>
+  <p class="doc-subtitle">Complete activation, deployment, and testing guide for this Ascension Export</p>
+  <div class="doc-serial">504ac991648533ac</div>
+  <div class="doc-meta">
+    <span class="doc-meta-item"><strong>Tier:</strong> Apex</span>
+    <span class="doc-meta-item"><strong>CJPI:</strong> 100</span>
+    <span class="doc-meta-item"><strong>Generated:</strong> April 4, 2026</span>
+  </div>
+  
+</div>
+
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> About This Software</div>
+  <div class="card">
+    <p><strong>modeling_utils</strong> is a <strong>Ascension Export</strong> from the CMPSBL® Substrate.</p>
+    <p>This is a <strong>Sealed Runtime</strong> — a production-grade, zero-dependency artifact that runs standalone in any TypeScript/JavaScript environment. The Mini-Runtime Engine is embedded directly in the source file. No additional packages required.</p>
+    <p><strong>CJPI Score:</strong> 100/100 · <strong>Tier:</strong> Apex · <strong>Version:</strong> 1.0.0</p>
+    <p><strong>Primitive Chain:</strong> CONDUIT, ORACLE, APEX, GENESIS, CRUCIBLE, LEXICON, LIDAR, DELEGATE, TOOLKIT, PRISM, FLUX, DYNAMO, SENTINEL, CATALYST, HERALD, PHOENIX, SIEVE, TENSOR, NEUTRINO, TETHER, MEMORY, CUSTODIAN, GRIPPER, QUBIT, OPERATOR, SERVO, HADRON, RAMPART, RECONN, CLARITY, FULCRUM, MARSHAL, TACHYON, MESON, PRISM, LINEAGE, BASTION, SYLLOGISM, SCRIBE, IRONCLAD</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 1. Activation</div>
+
+  <h3>Option A: Standalone (Recommended)</h3>
+  <p>Copy the source file into your project and import directly. Zero config.</p>
+  <pre><code># Copy into your project
+cp refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts ./src/vendor/cmpsbl/
+
+# Import and use
+import { init, process } from './vendor/cmpsbl/refurbished-CMPSBL-MNKQ1LXE-X0ZD';
+
+const instance = init();
+const result = await instance.process({ input: 'your-data' });</code></pre>
+
+  <h3>Option B: SDK Activation</h3>
+  <pre><code>npm install @cmpsbl/sdk
+
+import CMPSBL from '@cmpsbl/sdk';
+const client = new CMPSBL();
+// Your ascension activates automatically via the SDK</code></pre>
+
+  <h3>Option C: CLI Activation</h3>
+  <pre><code>npm install -g @cmpsbl/cli
+cmpsbl activate refurbished-CMPSBL-MNKQ1LXE-X0ZD
+cmpsbl status</code></pre>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 2. Commands Reference</div>
+  <table>
+    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>init(config?)</code></td><td>Initialize the runtime with optional configuration</td></tr>
+      <tr><td><code>process(input)</code></td><td>Execute the primary capability pipeline</td></tr>
+      <tr><td><code>getStatus()</code></td><td>Returns current runtime health and state</td></tr>
+      <tr><td><code>getMetrics()</code></td><td>Returns execution metrics (latency, throughput, errors)</td></tr>
+      <tr><td><code>reset()</code></td><td>Clear internal state and restart the runtime</td></tr>
+      <tr><td><code>configure(opts)</code></td><td>Update runtime configuration at runtime</td></tr>
+      <tr><td><code>dispose()</code></td><td>Gracefully shut down and release resources</td></tr>
+    </tbody>
+  </table>
+
+  <h3>CLI Commands</h3>
+  <table>
+    <thead><tr><th>CLI Command</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>cmpsbl activate &lt;slug&gt;</code></td><td>Activate a sealed runtime in your project</td></tr>
+      <tr><td><code>cmpsbl status</code></td><td>Show all active runtimes and their health</td></tr>
+      <tr><td><code>cmpsbl test</code></td><td>Run the bundled test harness</td></tr>
+      <tr><td><code>cmpsbl upgrade</code></td><td>Check for and apply runtime updates</td></tr>
+      <tr><td><code>cmpsbl deactivate &lt;slug&gt;</code></td><td>Remove a runtime from your project</td></tr>
+      <tr><td><code>cmpsbl export --format &lt;lang&gt;</code></td><td>Re-export in a different language bridge</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 3. Error Codes</div>
+  <p>All CMPSBL® runtimes use standardized error codes. Below are the codes you may encounter:</p>
+  <table>
+    <thead><tr><th>Code</th><th>Meaning</th><th>Resolution</th></tr></thead>
+    <tbody>
+      <tr><td><code>CMPSBL-E001</code></td><td>Runtime initialization failed</td><td>Check that <code>init()</code> is called before <code>process()</code>. Verify config is valid JSON.</td></tr>
+      <tr><td><code>CMPSBL-E002</code></td><td>Pipeline execution timeout</td><td>Increase <code>maxExecutionMs</code> in config, or reduce input complexity.</td></tr>
+      <tr><td><code>CMPSBL-E003</code></td><td>Invalid input schema</td><td>Ensure input matches the expected interface. See <code>runtime.d.ts</code> for types.</td></tr>
+      <tr><td><code>CMPSBL-E004</code></td><td>Circuit breaker tripped</td><td>The FAILSAFE primitive detected repeated failures. Wait for auto-reset or call <code>reset()</code>.</td></tr>
+      <tr><td><code>CMPSBL-E005</code></td><td>Memory capacity exceeded</td><td>The runtime's bounded buffer is full. Call <code>reset()</code> or increase <code>maxMemoryEntries</code>.</td></tr>
+      <tr><td><code>CMPSBL-E006</code></td><td>Sealed method access denied</td><td>Attempted to access a black-boxed internal. Use the public API surface only.</td></tr>
+      <tr><td><code>CMPSBL-E007</code></td><td>Bridge adapter connection failed</td><td>The runtime is in offline mode. Use <code>configureEndpoint(null)</code> for standalone operation.</td></tr>
+      <tr><td><code>CMPSBL-E008</code></td><td>CJPI validation failed</td><td>Manifest CJPI score does not match computed score. Re-export from the source substrate.</td></tr>
+      <tr><td><code>CMPSBL-E009</code></td><td>License validation error</td><td>Ensure your LICENSE file is present and unmodified in the bundle root.</td></tr>
+      <tr><td><code>CMPSBL-E010</code></td><td>Primitive dependency not found</td><td>A required primitive is missing. Verify all <code>_runtime/</code> files are present.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 4. Deployment</div>
+
+  <h3>A. Node.js / Bun / Deno</h3>
+  <pre><code># Run directly
+npx tsx src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts
+
+# Or compile and run
+npx tsc src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts --outDir dist
+node dist/refurbished-CMPSBL-MNKQ1LXE-X0ZD.js</code></pre>
+
+  <h3>B. Docker</h3>
+  <pre><code>FROM node:20-alpine
+WORKDIR /app
+COPY . .
+RUN npm install -g tsx
+CMD ["npx", "tsx", "src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts"]</code></pre>
+
+  <h3>C. Serverless (AWS Lambda / Vercel / Cloudflare)</h3>
+  <pre><code># Bundle as a single file — zero dependencies
+npx esbuild src/refurbished-CMPSBL-MNKQ1LXE-X0ZD.ts --bundle --platform=node --outfile=handler.js
+
+# Deploy the single handler.js file to your serverless provider</code></pre>
+
+  <h3>D. Embed in Existing Stack</h3>
+  <pre><code>// Express.js example
+import express from 'express';
+import { init, process } from './refurbished-CMPSBL-MNKQ1LXE-X0ZD';
+
+const app = express();
+const runtime = init();
+
+app.post('/api/refurbished-CMPSBL-MNKQ1LXE-X0ZD', async (req, res) =&gt; {
+  const result = await runtime.process(req.body);
+  res.json(result);
+});
+
+app.listen(3000);</code></pre>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 5. Testing with @cmpsbl/test-harness</div>
+  <p>Every export includes a <code>test-harness.config.json</code> and a pre-generated test file.</p>
+
+  <h3>Quick Test</h3>
+  <pre><code># Install the test harness
+npm install @cmpsbl/test-harness
+
+# Run tests against your export
+npx cmpsbl-test --config ./test-harness.config.json
+
+# Or use the test file directly
+npx vitest run test/</code></pre>
+
+  <h3>Writing Custom Tests</h3>
+  <pre><code>import { validateManifest, formatTestResults } from '@cmpsbl/test-harness';
+import manifest from './manifest.json';
+
+const result = validateManifest(JSON.stringify(manifest));
+console.log(formatTestResults(result));
+// Should output: ✓ All validations passed</code></pre>
+
+  <h3>CI/CD Integration</h3>
+  <pre><code># Add to your CI pipeline (GitHub Actions example)
+- name: Test CMPSBL Runtime
+  run: |
+    npm install @cmpsbl/test-harness
+    npx cmpsbl-test --config ./test-harness.config.json --ci</code></pre>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 6. About Black-Boxed Components</div>
+  <div class="callout">
+    <p><strong>Why is some code sealed?</strong></p>
+    <p>The <code>_runtime/</code> directory contains the CMPSBL® Mini-Runtime Engine — a proprietary scoring, tiering, and orchestration engine protected under trade secret law. The internal algorithms (CJPI weight allocations, tier thresholds, synergy formulas, discovery templates) are sealed to protect the intellectual property that makes this software unique.</p>
+  </div>
+
+  <h3>What is sealed</h3>
+  <ul>
+    <li>CJPI scoring weights and tier boundary calculations</li>
+    <li>Synergy multiplier formulas between primitives</li>
+    <li>Discovery engine heuristics and template injection</li>
+    <li>Internal orchestration and routing logic</li>
+  </ul>
+
+  <h3>What is fully open</h3>
+  <ul>
+    <li>All public API interfaces (<code>init</code>, <code>process</code>, <code>getStatus</code>, etc.)</li>
+    <li>TypeScript type definitions (<code>runtime.d.ts</code>)</li>
+    <li>Configuration schema and environment variables</li>
+    <li>Test harness and validation tools</li>
+    <li>Bridge adapters for non-TypeScript languages</li>
+  </ul>
+
+  <h3>How to verify sealed components</h3>
+  <pre><code># Use the test harness to verify sealed components work correctly
+npx cmpsbl-test --config ./test-harness.config.json --verify-sealed
+
+# The test harness validates:
+# ✓ CJPI scoring produces consistent results
+# ✓ Tier boundaries are stable
+# ✓ Pipeline execution completes within timeout
+# ✓ All public APIs respond correctly</code></pre>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 7. Network Modes</div>
+  <p>The embedded Mini-Runtime operates in three modes:</p>
+  <table>
+    <thead><tr><th>Mode</th><th>Description</th><th>When to Use</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Network</strong></td><td>Full substrate connectivity, deep primitive effects</td><td>Production with CMPSBL SDK</td></tr>
+      <tr><td><strong>Hybrid</strong></td><td>Auto-fallback when substrate is unreachable</td><td>Intermittent connectivity</td></tr>
+      <tr><td><strong>Offline</strong></td><td>Fully standalone, zero network dependency</td><td>Air-gapped, local, embedded</td></tr>
+    </tbody>
+  </table>
+  <pre><code>import { configureEndpoint, getRuntimeMode } from './_runtime/standalone-runtime';
+
+// Force offline (fully standalone)
+configureEndpoint(null);
+console.log(getRuntimeMode()); // 'offline'
+
+// Connect to substrate
+configureEndpoint('https://api.cmpsbl.com');
+console.log(getRuntimeMode()); // 'network'</code></pre>
+</div>
+
+<div class="section">
+  <div class="section-title"><span class="dot"></span> 8. Support</div>
+  <div class="card">
+    <p>Visit <strong>cmpsbl.com</strong> for documentation, updates, and support.</p>
+    <p>Use your <strong>Fingerprint ID</strong> (<code>504ac991648533ac</code>) to have DECODE retrieve your export context for personalized support.</p>
+    <p><strong>NPM Packages:</strong></p>
+    <ul>
+      <li><code>@cmpsbl/sdk</code> — Full SDK for runtime activation</li>
+      <li><code>@cmpsbl/runtime</code> — Mini-Runtime standalone package</li>
+      <li><code>@cmpsbl/cli</code> — Terminal activation and status</li>
+      <li><code>@cmpsbl/test-harness</code> — Validation and testing</li>
+      <li><code>@cmpsbl/types</code> — TypeScript type definitions</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="doc-footer">
+  <p><strong>CMPSBL®</strong> — Governed Cognitive Infrastructure</p>
+  <p>© 2026 PromptFluid™. All rights reserved.</p>
+  <p style="margin-top:0.5rem;font-size:0.6875rem;">This document is a sealed export artifact. Redistribution prohibited.</p>
+</div>
+
+</body>
+</html>
